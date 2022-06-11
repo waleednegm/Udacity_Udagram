@@ -130,4 +130,8 @@ Resources:
 Outputs:
     DNSName:
       Description: The URL of The Application Load Balancer
-      Value: !GetAtt WebAppLB.DNSName
+      Value: 
+        Fn::Join: 
+          [ "", [ "http://", !GetAtt WebAppLB.DNSName ] ]
+      Export: 
+        Name: DNSName
